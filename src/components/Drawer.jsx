@@ -6,7 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import icon from '../images/cryptocurrency.png';
 
 const Drawer = ({ isOpen, onClose }) => {
@@ -37,15 +37,17 @@ const Drawer = ({ isOpen, onClose }) => {
             <li
               onClick={() => onClose()}
               key={link.url}
-              className='w-full hover:bg-gray-300 hover:bg-opacity-25 rounded my-1 transition'
+              className='relative group w-full hover:bg-gray-300 hover:bg-opacity-25 rounded my-1 transition'
             >
-              <Link
+              <NavLink
+                exact
+                activeClassName='bg-secondary-500 focus:bg-secondary-500 hover:bg-secondary-600'
                 to={link.url}
-                className='w-full inline-block px-4 py-3 rounded focus:bg-gray-300 focus:outline-none focus:bg-opacity-25'
+                className='transition w-full inline-block px-4 py-3 rounded focus:bg-gray-300 focus:outline-none focus:bg-opacity-25'
               >
                 <FontAwesomeIcon className='mr-3' icon={link.icon} />
                 {link.title}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
