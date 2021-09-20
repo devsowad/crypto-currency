@@ -1,20 +1,51 @@
-import { faReact } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  Drawer,
+  Home,
+  Cryptocurrencies,
+  CryptoDetails,
+  Exchanges,
+  News,
+  Appbar,
+  Backdrop,
+} from './components';
+import { Route, Switch } from 'react-router';
 
 const App = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className='dark'>
-      <div className='h-screen flex items-center justify-center text-center  dark:bg-gray-700 bg-purple-200'>
-        <div>
-          <p className='dark:text-white text-4xl'>Hello React!</p>
-          <FontAwesomeIcon
-            className='mt-4 text-4xl text-dark-600 dark:text-blue-400'
-            icon={faReact}
-            size='lg'
-          />
+    <div className='flex flex-row min-h-screen bg-gray-100 text-gray-800'>
+      <Backdrop isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
+
+      <main className='main flex flex-col flex-grow -ml-64 lg:ml-0 transition-all duration-150 ease-in'>
+        <Appbar onClose={() => setIsOpen(!isOpen)} />
+
+        <div className='main-content flex flex-col flex-grow p-4'>
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route exact path='/cryptocurrencies'>
+              <Cryptocurrencies />
+            </Route>
+            <Route exact path='/crypto/:coinId'>
+              <CryptoDetails />
+            </Route>
+            <Route exact path='/exchanges'>
+              <Exchanges />
+            </Route>
+            <Route exact path='/news'>
+              <News />
+            </Route>
+          </Switch>
         </div>
-      </div>
+
+        <div className='p-4 text-center'>
+          Copyright © 2021 <a href='/'>Cryptoverse Inc</a>. All Rights Reserved.
+        </div>
+      </main>
     </div>
   );
 };
