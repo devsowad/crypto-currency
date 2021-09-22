@@ -19,7 +19,7 @@ const App = () => {
       <Backdrop isOpen={isOpen} onClose={() => setIsOpen(false)} />
       <Drawer isOpen={isOpen} onClose={() => setIsOpen(false)} />
 
-      <main className='main flex flex-col flex-grow -ml-64 lg:ml-0 transition-all duration-150 ease-in'>
+      <main className='container sm:max-w-full flex flex-col flex-grow -ml-64 xl:ml-0 transition-all duration-150 ease-in'>
         <Appbar onClose={() => setIsOpen(!isOpen)} />
 
         <div className='main-content flex flex-col flex-grow p-4'>

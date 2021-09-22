@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  overflow: -moz-scrollbars-vertical;
+  overflow-y: scroll;
+}
+
+.btn {
+  @apply focus:outline-none transition uppercase;
+}
+
+.secondary {
+  @apply hover:bg-secondary-700 focus:ring-secondary-400 rounded;
+}
+
+.secondary.filled {
+  @apply bg-secondary-600 text-white;
+}
+
+.primary {
+  @apply focus:ring-primary-light rounded focus:ring-opacity-70 hover:bg-primary-light hover:bg-opacity-10;
+}
+
+.icon {
+  @apply w-10 h-10 focus:ring-2 rounded-full;
+}
+
+.small {
+  @apply px-3 py-1 focus:ring-2 text-sm;
+}

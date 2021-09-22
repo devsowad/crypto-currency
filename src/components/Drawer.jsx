@@ -21,7 +21,7 @@ const Drawer = ({ isOpen, onClose }) => {
     <aside
       className={`${
         isOpen ? 'translate-x-0' : ' -translate-x-full'
-      } sidebar w-64 lg:shadow transform lg:translate-x-0 transition-transform duration-150 ease-out bg-primary-light text-white`}
+      } sidebar z-50 w-64 lg:shadow transform xl:translate-x-0 transition-transform duration-150 ease-out bg-primary-light text-white`}
     >
       <Link
         onClick={() => onClose()}

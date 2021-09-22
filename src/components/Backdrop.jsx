@@ -5,7 +5,7 @@ const Backdrop = ({ isOpen, onClose }) => {
     <div
       className={`${
         !isOpen && 'hidden'
-      } fixed transition ease-in duration-150 inset-0 bg-gray-600 bg-opacity-90`}
+      } fixed transition ease-in duration-150 z-40 inset-0 bg-gray-600 bg-opacity-90`}
       onClick={() => onClose()}
     ></div>
   );
